@@ -82,11 +82,25 @@ for p in products:
 
 departmentsLength = len(departments)
 
-#departments = sorted(departments, key=lambda n: n["department"])
-
 print("--------------")
 print(f"THERE ARE {departmentsLength} DEPARTMENTS")
 print("--------------")
+
+count = 0
+
+for d in departments:
+    for p in products:
+        if p["department"] == d:
+            count+=1
+        
+        if p == products[-1]:
+            prd = "products"
+            if count == 1:
+                prd = "product"
+            print(" + " + d.title() + " (" + str(count) + " " + prd + ")")
+            count = 0
+        
+
 
 
 
